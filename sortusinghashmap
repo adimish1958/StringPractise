@@ -1,0 +1,52 @@
+//sort a hash map in natural order or in reverse
+	/*Map<String, Integer> unsortedMap = Map.of("a", 1, "c", 3, "b", 2, "e", 5, "d", 4);
+
+	LinkedHashMap<String, Integer> sortedMap = unsortedMap.entrySet()
+	    .stream()
+	    .sorted(Map.Entry.comparingByValue())
+	    .collect(Collectors.toMap(
+	        Map.Entry::getKey,
+	        Map.Entry::getValue,
+	        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+
+	System.out.println(sortedMap);
+	
+	
+	Map<String, Integer> unsortedMap = Map.of("a", 1, "c", 3, "b", 2, "e", 5, "d", 4);
+
+	LinkedHashMap<String, Integer> sortedMap = unsortedMap.entrySet()
+    	.stream()
+    	.sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+    	.collect(Collectors.toMap(
+        	Map.Entry::getKey,
+        	Map.Entry::getValue,
+        	(oldValue, newValue) -> oldValue, LinkedHashMap::new));
+
+	System.out.println(sortedMap);
+	
+	if need to sort by keys then directly use the treemap
+	
+	if need to sort by values then use the above method or the below one:
+	
+	private static HashMap sortByValues(HashMap map) { 
+       List list = new LinkedList(map.entrySet());
+       // Defined Custom Comparator here
+       Collections.sort(list, new Comparator() {
+            public int compare(Object o1, Object o2) {
+               return ((Comparable) ((Map.Entry) (o1)).getValue())   //if required in reverse then just 
+               	.compareTo(((Map.Entry) (o2)).getValue());													//	replace o1 and o2 in return statement
+                  
+            }
+       });
+
+       // Here I am copying the sorted list in HashMap
+       // using LinkedHashMap to preserve the insertion order
+       HashMap sortedHashMap = new LinkedHashMap();
+       for (Iterator it = list.iterator(); it.hasNext();) {
+              Map.Entry entry = (Map.Entry) it.next();
+              sortedHashMap.put(entry.getKey(), entry.getValue());
+       } 
+       return sortedHashMap;
+  }
+	
+	*/
