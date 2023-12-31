@@ -76,3 +76,20 @@ public static void substringWithKdistant(String s, int k) {
                     max_window_start + max_window_size) 
                 + " with length " + max_window_size); 
     } 
+
+static boolean isValid(int count[], int k) 
+	{ 
+		final int MAX_CHARS = 26;
+		int val = 0; 
+		for (int i = 0; i < MAX_CHARS; i++) 
+		{ 
+			if (count[i] > 0) 
+			{ 
+				val++; 
+			} 
+		} 
+
+		// Return true if k is greater
+		// than or equal to val 
+		return (k >= val); 
+	} 
